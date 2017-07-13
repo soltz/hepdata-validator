@@ -186,6 +186,106 @@
               ],
               "additionalProperties": false
             }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "uncorrelated_sym_error": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "values": {
+                          "type": "array",
+                          "items": { "type": "number", "minimum": 0 }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "uncorrelated_asym_error": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": [
+                              { "type": "number", "maximum": 0 },
+                              { "type": "number", "minimum": 0 }
+                            ],
+                            "additionalItems": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "fully_correlated_sym_error": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "values": {
+                          "type": "array",
+                          "items": { "type": "number", "minimum": 0 }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "fully_correlated_asym_error": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": [
+                              { "type": "number", "maximum": 0 },
+                              { "type": "number", "minimum": 0 }
+                            ],
+                            "additionalItems": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "covariance_matrix": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": { "type": "number" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+
           }
         },
         "additionalProperties": false
